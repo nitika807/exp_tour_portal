@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 02, 2020 at 02:44 PM
+-- Generation Time: Jun 14, 2020 at 11:42 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.31
 
@@ -52,13 +52,6 @@ CREATE TABLE `cart` (
   `qty` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `cart`
---
-
-INSERT INTO `cart` (`t_id`, `ip_add`, `qty`) VALUES
-(106, '::1', 0);
-
 -- --------------------------------------------------------
 
 --
@@ -88,6 +81,20 @@ INSERT INTO `categories` (`cat_id`, `cat_title`, `cat_image`) VALUES
 (11, 'Culinary', 'food.jpg'),
 (12, 'Community Sports', 'sport.jpg'),
 (23, 'Farms', 'Farming2.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact`
+--
+
+CREATE TABLE `contact` (
+  `id` int(100) NOT NULL,
+  `name` text NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `subject` text NOT NULL,
+  `message` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -133,13 +140,6 @@ CREATE TABLE `customer_orders` (
   `order_status` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `customer_orders`
---
-
-INSERT INTO `customer_orders` (`order_id`, `customer_id`, `due_amount`, `invoice_no`, `total_products`, `order_date`, `order_status`) VALUES
-(39, 7, 123, 1790271789, 1, '2020-06-02 12:06:05', 'Pending');
-
 -- --------------------------------------------------------
 
 --
@@ -184,15 +184,6 @@ CREATE TABLE `pending_orders` (
   `order_status` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `pending_orders`
---
-
-INSERT INTO `pending_orders` (`order_id`, `customer_id`, `invoice_no`, `product_id`, `order_status`) VALUES
-(37, 7, 847735987, 106, 'Pending'),
-(38, 7, 1007322372, 106, 'Pending'),
-(39, 7, 1790271789, 106, 'Pending');
-
 -- --------------------------------------------------------
 
 --
@@ -227,7 +218,16 @@ CREATE TABLE `post` (
 --
 
 INSERT INTO `post` (`post_id`, `post_title`, `type`, `post_desc`, `post_price`, `post_days`, `post_nights`, `post_people`, `post_hotel`, `post_images`, `post_include`, `post_ninclude`, `post_date`, `cat_id`, `post_keywords`, `booking_start`, `booking_end`, `sdate`, `edate`, `status`) VALUES
-(106, 'Example tour', '', 'This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. ', 123, 0, 0, 5, 4, 'dwn.jpg', 'This is an example of tour. ', 'This is an example of tour. ', '2020-05-22', 1, 'This is an example of tour. ', '2020-05-22', '2020-06-11', '2020-06-29', '2020-07-01', 'on');
+(106, 'Example tour', '', 'This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. This is an example of tour. ', 123, 0, 0, 5, 4, 'dwn.jpg', 'This is an example of tour. ', 'This is an example of tour. ', '2020-05-22', 1, 'This is an example of tour. ', '2020-06-18', '2020-06-27', '2020-06-29', '2020-07-01', 'on'),
+(111, 'Festival Example', '', 'This is a festival example. This is a festival example. This is a festival example. This is a festival example. This is a festival example. This is a festival example. This is a festival example. This is a festival example. This is a festival example. This is a festival example. This is a festival example. This is a festival example. This is a festival example. This is a festival example. This is a festival example. This is a festival example. This is a festival example. This is a festival example. This is a festival example. This is a festival example. This is a festival example. This is a festival example. This is a festival example. This is a festival example. This is a festival example. This is a festival example. This is a festival example. ', 500, 0, 0, 5, 5, 'dwn.jpg', 'This is a festival example. This is a festival example. This is a festival example. ', 'This is a festival example. This is a festival example. This is a festival example. ', '2020-06-05', 3, 'adventure, sports, festival', '0000-00-00', '0000-00-00', '2020-06-12', '2020-06-30', 'on'),
+(112, 'This is the other festival example. ', '', 'This is the other festival example. This is the other festival example. This is the other festival example. This is the other festival example. This is the other festival example. This is the other festival example. This is the other festival example. This is the other festival example. This is the other festival example. This is the other festival example. This is the other festival example. This is the other festival example. This is the other festival example. This is the other festival example. This is the other festival example. This is the other festival example. This is the other festival example. ', 600, 0, 0, 4, 3, 'dwn.jpg', 'This is the other festival example. ', 'This is the other festival example. ', '2020-06-05', 3, 'festival tour, adventurous', '0000-00-00', '0000-00-00', '2020-06-18', '2020-06-20', 'on'),
+(113, 'Art and culture tour example', '', 'Art and culture tour exampleArt and culture tour exampleArt and culture tour exampleArt and culture tour exampleArt and culture tour exampleArt and culture tour exampleArt and culture tour exampleArt and culture tour exampleArt and culture tour exampleArt and culture tour exampleArt and culture tour exampleArt and culture tour exampleArt and culture tour exampleArt and culture tour exampleArt and culture tour exampleArt and culture tour exampleArt and culture tour example', 800, 0, 0, 6, 4, 'dwn.jpg', 'Art and culture tour example', 'Art and culture tour example', '2020-06-05', 4, 'Art and culture tour example', '2020-06-09', '2020-06-11', '2020-06-28', '2020-07-02', 'on'),
+(114, 'Second Art and culture tour example', '', 'Second Art and culture tour exampleSecond Art and culture tour exampleSecond Art and culture tour exampleSecond Art and culture tour exampleSecond Art and culture tour exampleSecond Art and culture tour exampleSecond Art and culture tour exampleSecond Art and culture tour exampleSecond Art and culture tour exampleSecond Art and culture tour exampleSecond Art and culture tour exampleSecond Art and culture tour exampleSecond Art and culture tour exampleSecond Art and culture tour exampleSecond Art and culture tour example', 300, 0, 0, 3, 4, 'dwn.jpg', 'Second Art and culture tour example', 'Second Art and culture tour example', '2020-06-05', 4, 'Second Art and culture tour example', '0000-00-00', '0000-00-00', '2020-06-09', '2020-06-18', 'on'),
+(115, 'Tea Garden Tour', '', 'This is a tea garden tour example. This is a tea garden tour example. This is a tea garden tour example. This is a tea garden tour example. This is a tea garden tour example. This is a tea garden tour example. This is a tea garden tour example. This is a tea garden tour example. This is a tea garden tour example. This is a tea garden tour example. This is a tea garden tour example. This is a tea garden tour example. This is a tea garden tour example. This is a tea garden tour example. This is a tea garden tour example. This is a tea garden tour example. This is a tea garden tour example. This is a tea garden tour example. This is a tea garden tour example. This is a tea garden tour example. This is a tea garden tour example. This is a tea garden tour example. ', 500, 0, 0, 4, 5, 'dwn.jpg', 'This is a tea garden tour example. This is a tea garden tour example. This is a tea garden tour example. ', 'This is a tea garden tour example. This is a tea garden tour example. ', '2020-06-09', 9, 'tea, garden, tour, trip', '2020-06-12', '2020-06-20', '2020-07-05', '2020-07-12', 'on'),
+(116, 'Spiritual ', '', 'This is a spiritual tour example.This is a spiritual tour example.This is a spiritual tour example.This is a spiritual tour example.This is a spiritual tour example.This is a spiritual tour example.This is a spiritual tour example.This is a spiritual tour example.This is a spiritual tour example.This is a spiritual tour example.This is a spiritual tour example.This is a spiritual tour example.This is a spiritual tour example.This is a spiritual tour example.This is a spiritual tour example.This is a spiritual tour example.This is a spiritual tour example.This is a spiritual tour example.This is a spiritual tour example.', 100, 0, 0, 10, 4, 'art_opt (1).jpg', 'This is a spiritual tour example.', 'This is a spiritual tour example.', '2020-06-09', 6, 'spiritual, temple', '2020-06-12', '2020-06-14', '2020-06-14', '2020-06-26', 'on'),
+(117, 'Well Being Tour Example', '', 'This is a well being tour example.This is a well being tour example.This is a well being tour example.This is a well being tour example.This is a well being tour example.This is a well being tour example.This is a well being tour example.This is a well being tour example.This is a well being tour example.This is a well being tour example.This is a well being tour example.This is a well being tour example.This is a well being tour example.This is a well being tour example.This is a well being tour example.This is a well being tour example.This is a well being tour example.This is a well being tour example.This is a well being tour example.This is a well being tour example.This is a well being tour example.This is a well being tour example.This is a well being tour example.This is a well being tour example.This is a well being tour example.This is a well being tour example.This is a well being tour example.This is a well being tour example.This is a well being tour example.This is a well being tour example.This is a well being tour example.', 100, 0, 0, 1, 4, 'well_being1_opt.jpg', 'This is a well being tour example.', 'This is a well being tour example.', '2020-06-09', 5, 'This is a well being tour example.', '2020-06-09', '2020-06-14', '2020-06-18', '2020-06-27', 'on'),
+(118, 'Wildlife Tour Example', '', 'This is a wildlife tour example. This is a wildlife tour example. This is a wildlife tour example. This is a wildlife tour example. This is a wildlife tour example. This is a wildlife tour example. This is a wildlife tour example. This is a wildlife tour example. This is a wildlife tour example. This is a wildlife tour example. This is a wildlife tour example. This is a wildlife tour example. This is a wildlife tour example. This is a wildlife tour example. This is a wildlife tour example. This is a wildlife tour example. This is a wildlife tour example. This is a wildlife tour example. This is a wildlife tour example. ', 500, 0, 0, 2, 4, 'wildlife1_opt.jpg', 'This is a wildlife tour example. ', 'This is a wildlife tour example. ', '2020-06-09', 10, 'This is a wildlife tour example. ', '2020-06-09', '2020-06-11', '2020-06-13', '2020-06-17', 'on'),
+(119, 'Social Enterprises Example tour', '', 'this is a Social Enterprises Example tour.this is a Social Enterprises Example tour.this is a Social Enterprises Example tour.this is a Social Enterprises Example tour.this is a Social Enterprises Example tour.this is a Social Enterprises Example tour.this is a Social Enterprises Example tour.this is a Social Enterprises Example tour.this is a Social Enterprises Example tour.this is a Social Enterprises Example tour.this is a Social Enterprises Example tour.this is a Social Enterprises Example tour.this is a Social Enterprises Example tour.this is a Social Enterprises Example tour.this is a Social Enterprises Example tour.this is a Social Enterprises Example tour.this is a Social Enterprises Example tour.this is a Social Enterprises Example tour.this is a Social Enterprises Example tour.this is a Social Enterprises Example tour.this is a Social Enterprises Example tour.this is a Social Enterprises Example tour.this is a Social Enterprises Example tour.this is a Social Enterprises Example tour.this is a Social Enterprises Example tour.this is a Social Enterprises Example tour.this is a Social Enterprises Example tour.this is a Social Enterprises Example tour.this is a Social Enterprises Example tour.this is a Social Enterprises Example tour.this is a Social Enterprises Example tour.this is a Social Enterprises Example tour.', 400, 0, 0, 5, 5, 'well_being1_opt.jpg', 'this is a Social Enterprises Example tour.', 'this is a Social Enterprises Example tour.', '2020-06-09', 7, 'this is a Social Enterprises Example tour.', '1970-01-01', '1970-01-01', '2020-06-27', '2020-07-03', 'on');
 
 -- --------------------------------------------------------
 
@@ -241,6 +241,17 @@ CREATE TABLE `rating` (
   `rating_number` int(11) NOT NULL,
   `user_ip` varchar(255) NOT NULL,
   `submitted` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subscribe`
+--
+
+CREATE TABLE `subscribe` (
+  `id` int(100) NOT NULL,
+  `email` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -264,6 +275,12 @@ ALTER TABLE `cart`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`cat_id`);
+
+--
+-- Indexes for table `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `customers`
@@ -308,6 +325,12 @@ ALTER TABLE `rating`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `subscribe`
+--
+ALTER TABLE `subscribe`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -321,7 +344,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `cat_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `cat_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT for table `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `customers`
@@ -357,13 +386,19 @@ ALTER TABLE `pending_orders`
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `post_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
+  MODIFY `post_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
 
 --
 -- AUTO_INCREMENT for table `rating`
 --
 ALTER TABLE `rating`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `subscribe`
+--
+ALTER TABLE `subscribe`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
